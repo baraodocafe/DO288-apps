@@ -98,7 +98,7 @@ pipeline {
                         openshift.withProject(${DEV_PROJECT}) {
                             def bc = openshift.selector("dc","${APP_NAME}").rollout()
                             openshift.selector("dc",${APP_NAME}).related('pods').untilEach(1) {
-                                return (it.object().status.phase == "Running"
+                                return (it.object().status.phase == "Running")
                             }
                         }
                     }
